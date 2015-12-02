@@ -1,3 +1,5 @@
+#UP TO DATE
+
 import boto.sqs
 import boto.sqs.queue
 from boto.sqs.message import Message
@@ -37,17 +39,17 @@ rs = conn.get_all_queues()
 if(sys.argv[1]=="read"):
 	for q in rs:
         	if (q.id==sys.argv[2]):
-                	print "reading messages"
+                	print "reading messages..."
                 	rs = q.get_messages()
                 	m = rs[0]
-               	 	print ('My message:' + m.get_body())
+               	 	print ('My message is:' + m.get_body())
 
 
 if(sys.argv[1]=="consume"):
 	for q in rs:
 		if (q.id==sys.argv[2]):
-			print "Consuming message"
+			print "Consuming message..."
 			rs = q.get_messages()
 			m = rs[0]
 			q.delete_message(m)
-			print ('Message deleted from queue')
+			print ('Message  deleted  from  the  queue')
